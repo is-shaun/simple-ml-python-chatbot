@@ -2,3 +2,4 @@
 chat.joblib
 *.pyc
 __pycache__/
+venv/
