@@ -1,3 +1,28 @@
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes typingAnimation {
+    0% { width: 0; }
+    50% { width: 50%; }
+    100% { width: 100%; }
+}
+
+.typing-animation {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 70%;
+    word-wrap: break-word;
+    background-color: #e0e0e0;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typingAnimation 1s ease forwards;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
@@ -8,14 +33,15 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(-45deg, #ffcccc, #cc99ff, #99ff99, #99ccff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
 }
 
 #chat-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 350px;
-    width: 350px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -24,6 +50,24 @@ body {
     max-height: 500px;
     height: 500px;
     margin-top: 20px;
+    resize: both;
+    overflow: auto;
+    min-width: 350px;
+    min-height: 350px;
+    max-width: 1000px;
+    max-height: 600px;
+}
+
+@media (max-width: 768px) {
+    #chat-container {
+        max-width: 90vw;
+    }
+}
+
+@media (max-height: 768px) {
+    #chat-container {
+        max-height: 90vh;
+    }
 }
 
 .message {
