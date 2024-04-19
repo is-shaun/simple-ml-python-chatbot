@@ -56,6 +56,10 @@ python3 app.py
 
 - [x] Text support
 - [x] Custom response support
+- [x] YouTube Search support
+- [x] Google Search support
+- [x] Wikipedia Search support
+- [x] Google News support
 - [ ] Image support
 - [ ] Audio support
 - [ ] Video support
