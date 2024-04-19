@@ -11,6 +11,7 @@ This project is under development and soon will be supported to web with multi m
     * [Screenshots](#screenshots)
 * [Installation](#installation)
 * [Usage](#usage)
+    * [API](./example.md)
 * [Features](#features)
 * [Authors](#authors)
 
