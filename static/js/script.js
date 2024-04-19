@@ -14,14 +14,19 @@ document.getElementById('chat-form').addEventListener('submit', function(event) 
     })
     .then(response => response.json())
     .then(data => {
-        
         chatContainer.insertAdjacentHTML('beforeend', '<div class="message typing-animation"></div>');
+
+        // Scroll down to the bottom of the chat container
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
         setTimeout(() => {
-            
             let typingMessage = chatContainer.querySelector('.typing-animation');
             typingMessage.remove();
             chatContainer.insertAdjacentHTML('beforeend', '<div class="message chatbot-message">' + data.response + '</div>');
-        }, 1000); 
+            
+            // Scroll down to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }, 1000);
     });
 
     document.getElementById('question').value = '';
