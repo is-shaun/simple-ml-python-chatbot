@@ -10,8 +10,11 @@ import wikipedia
 import webbrowser
 from bs4 import BeautifulSoup
 import os
-import train
 import argparse
+
+# From local files
+import train
+import toxicity
 
 parser = argparse.ArgumentParser()
 
@@ -188,9 +191,15 @@ def index():
 @app.route("/chat", methods=["POST"])
 def chat():
     question = request.form["question"]
-    model = load_model()
-    response = get_response(question, model)
-    return jsonify({"response": response})
+
+    toxic = toxicity.is_toxic(question)
+
+    if toxic:
+        return jsonify({"response": "It's an inappropriate question, I can't answer that."})
+    else:
+        model = load_model()
+        response = get_response(question, model)
+        return jsonify({"response": response})
 
 
 @app.route("/api/chat", methods=["POST"])

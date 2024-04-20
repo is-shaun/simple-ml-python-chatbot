@@ -2,4 +2,6 @@ flask
 joblib
 youtube-search
 wikipedia
+pandas
+numpy
 scikit-learn
