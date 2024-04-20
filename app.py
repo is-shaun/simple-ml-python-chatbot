@@ -15,7 +15,6 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-
 parser.add_argument(
     "-p",
     "--port",
@@ -24,9 +23,18 @@ parser.add_argument(
     help="specify the port number, default is 5000.",
 )
 
+parser.add_argument(
+    "-s",
+    "--server",
+    type=int,
+    default=1,
+    help="server mode, default is True.",
+)
+
 args = parser.parse_args()
 
 port = args.port
+server = args.server
 
 if os.path.exists("chat.joblib"):
     pass
@@ -171,7 +179,10 @@ def get_response(question, model):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if server == 1:
+        return jsonify({"status": "Server is running"})
+    elif server == 0:
+        return render_template("index.html")
 
 
 @app.route("/chat", methods=["POST"])

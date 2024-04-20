@@ -42,6 +42,11 @@ pip3 install -r requirements.txt
 
 ## Usage
 
+Arguments:
+
+- `--port` or `-p`: Change the port number (default: 5000)
+- `--server` or `-s`: Change the server (default: Server is True, no UI)
+
 ```bash
 python train.py
 python app.py
@@ -52,6 +57,18 @@ or
 ```bash
 python3 train.py
 python3 app.py
+```
+
+### Example:
+
+```bash
+python app.py --port 5001 --server 1 # Run the server on port 5001 and hide the UI 
+```
+
+or
+
+```bash
+python app.py --port 5001 --server - # Run the server on port 5001 and show the UI
 ```
 
 ### Example Usage
