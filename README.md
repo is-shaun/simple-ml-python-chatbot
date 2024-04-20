@@ -31,13 +31,21 @@ https://github.com/mantreshkhurana/simple-ml-python-chatbot/assets/120998049/8d3
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the required packages.
 
 ```bash
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+python train.py
+python app.py
 ```
 
 or
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip3 install -r requirements.txt
+python3 train.py
+python3 app.py
 ```
 
 ## Usage

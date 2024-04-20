@@ -97,21 +97,18 @@ def get_response(question, model):
                 webbrowser.open("https://www.youtube.com" + v["url_suffix"])
                 return "Playing " + v["title"]
 
-    elif "google" in question:
-        reg_ex = re.search("google (.+)", question)
+    elif "google" in question or "search" in question:
+        if "google" in question:
+            reg_ex = re.search("google (.+)", question)
+
+        elif "search" in question:
+            reg_ex = re.search("search (.+)", question)
+
         if reg_ex:
             domain = reg_ex.group(1)
-            headers = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"
-            }
-            added_query = requests.get(
-                "https://www.google.com/search?q=" + domain, headers=headers
-            )
-            soup = BeautifulSoup(added_query.text, "lxml")
-            result = soup.find_all("div", class_="Z0LcW")
-            url = result.text
+            url = "https://www.google.com/search?q=" + domain
             webbrowser.open(url)
-            return "Searching, " + url
+            return "Showing some results of " + domain + " on Google."
 
     elif "cricket news" in question or "news cricket" in question:
         headers = {

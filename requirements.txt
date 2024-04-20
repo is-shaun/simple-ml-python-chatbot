@@ -5,3 +5,4 @@ wikipedia
 pandas
 numpy
 scikit-learn
+lxml
