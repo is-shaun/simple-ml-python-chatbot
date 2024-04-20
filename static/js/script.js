@@ -16,7 +16,6 @@ document.getElementById('chat-form').addEventListener('submit', function(event) 
     .then(data => {
         chatContainer.insertAdjacentHTML('beforeend', '<div class="message typing-animation"></div>');
 
-        // Scroll down to the bottom of the chat container
         chatContainer.scrollTop = chatContainer.scrollHeight;
 
         setTimeout(() => {
@@ -24,7 +23,6 @@ document.getElementById('chat-form').addEventListener('submit', function(event) 
             typingMessage.remove();
             chatContainer.insertAdjacentHTML('beforeend', '<div class="message chatbot-message">' + data.response + '</div>');
             
-            // Scroll down to the bottom of the chat container
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }, 1000);
     });
