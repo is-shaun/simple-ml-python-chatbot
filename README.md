@@ -98,10 +98,11 @@ if __name__ == "__main__":
 - [x] Google News support
 - [x] Google Maps support
 - [x] API support
+- [x] YouTube Video support
 - [ ] Conversation continuance support
 - [ ] Image search support
 - [ ] Translation support
-- [ ] Image support
+- [x] Image support
 - [ ] Audio support
 - [ ] Video support
 - [ ] Muliple language support

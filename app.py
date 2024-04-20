@@ -144,8 +144,11 @@ def get_response(question, model):
         if reg_ex:
             domain = reg_ex.group(1)
             url = "https://www.youtube.com/results?search_query=" + domain
-            webbrowser.open(url)
-            return "Showing some results of " + domain + " on Youtube"
+
+            results = YoutubeSearch(domain, max_results=1).to_dict()
+            for v in results:
+                webbrowser.open(url)
+                return "Showing some results of " + domain + " on Youtube: <br><b>" + v["title"] + "</b> " + "https://www.youtube.com" + v["url_suffix"].split("&")[0]
 
     elif "who is" in question:
         who_is = re.search("who is (.+)", question)
@@ -163,7 +166,7 @@ def get_response(question, model):
         locate = location.group(1)
         locate = "https://www.google.com/maps/place/" + str(locate) + "/&amp;"
         webbrowser.open(locate)
-        return "Showing " + str(locate) + " on Map."
+        return "Showing <b>" + str(locate) + "<b> on Map."
 
     elif "news" == question:
         news_url = "https://news.google.com/news/rss"
