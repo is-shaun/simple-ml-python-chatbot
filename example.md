@@ -4,6 +4,20 @@
 
 Welcome to the Chatbot API documentation. This API allows you to interact with a chatbot to get responses to various queries.
 
+You can change port by passing `--port` argument to the `app.py` file.
+
+```bash
+python app.py --port 4000
+```
+
+or
+
+```bash
+python app.py -p 4000
+```
+
+> Note: The default port is `5000`.
+
 ## Getting Started
 
 To start using the API, follow these steps:
@@ -76,6 +90,8 @@ curl -X POST \
 ## Rate Limiting
 
 There is currently no rate limiting implemented on this API. However, excessive use may result in temporary bans.
+
+> This will be implemented in future versions.
 
 ## Conclusion
 

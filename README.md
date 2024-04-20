@@ -12,6 +12,7 @@ This project is under development and soon will be supported to web with multi m
 * [Installation](#installation)
 * [Usage](#usage)
     * [API](./example.md)
+    * [Example Usage](#example-usage)
 * [Features](#features)
 * [Authors](#authors)
 
@@ -53,6 +54,23 @@ python3 train.py
 python3 app.py
 ```
 
+### Example Usage
+
+A very basic implementation of API using Python `requests` library.
+
+```python
+import requests
+
+url = "http://127.0.0.1:5000/api/chat"
+
+if __name__ == "__main__":
+    while True:
+        input_data = str(input("Enter your question: "))
+        data = {"question": input_data}
+        response = requests.post(url, json=data)
+        print("Bot:", response.json()["response"])
+```
+
 ## Features
 
 - [x] Text support
@@ -61,6 +79,11 @@ python3 app.py
 - [x] Google Search support
 - [x] Wikipedia Search support
 - [x] Google News support
+- [x] Google Maps support
+- [x] API support
+- [ ] Conversation continuance support
+- [ ] Image search support
+- [ ] Translation support
 - [ ] Image support
 - [ ] Audio support
 - [ ] Video support

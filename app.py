@@ -11,6 +11,22 @@ import webbrowser
 from bs4 import BeautifulSoup
 import os
 import train
+import argparse
+
+parser = argparse.ArgumentParser()
+
+
+parser.add_argument(
+    "-p",
+    "--port",
+    type=int,
+    default=5000,
+    help="specify the port number, default is 5000.",
+)
+
+args = parser.parse_args()
+
+port = args.port
 
 if os.path.exists("chat.joblib"):
     pass
@@ -188,4 +204,4 @@ def internal_server_error(error):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=port)
