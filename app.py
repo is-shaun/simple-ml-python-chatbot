@@ -13,8 +13,8 @@ import os
 import argparse
 
 # From local files
-import train
-import toxicity
+import train as train
+import modules.toxicity as toxicity
 
 parser = argparse.ArgumentParser()
 
