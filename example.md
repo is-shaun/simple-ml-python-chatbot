@@ -13,7 +13,7 @@ To start using the API, follow these steps:
 
 ## Base URL
 
-The base URL for accessing the API is `http://localhost:5000` if running locally. If deployed to a server, replace `localhost:5000` with the server's domain.
+The base URL for accessing the API is `http://127.0.0.1:5000` if running locally. If deployed to a server, replace `127.0.0.1:5000` with the server's domain.
 
 ## Endpoints
 
@@ -50,7 +50,7 @@ The base URL for accessing the API is `http://localhost:5000` if running locally
 ```python
 import requests
 
-url = "http://localhost:5000/api/chat"
+url = "http://127.0.0.1:5000/api/chat"
 data = {"question": "What is the current time?"}
 
 response = requests.post(url, json=data)
@@ -61,7 +61,7 @@ print(response.json())
 
 ```bash
 curl -X POST \
-  http://localhost:5000/api/chat \
+  http://127.0.0.1:5000/api/chat \
   -H 'Content-Type: application/json' \
   -d '{
     "question": "What is the current time?"
